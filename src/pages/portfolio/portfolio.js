@@ -42,7 +42,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="bg-[#d3d3d3] w-full h-[100vh] lg:h-auto flex justify-center">
+    <div className="bg-[#d3d3d3] w-full h-auto flex justify-center">
       <div className="bg-[#ffffff] lg:rounded-[15px] lg:mt-[30px] p-[22px] w-full lg:w-[1132px] lg:my-[30px]">
         <div className="flex justify-between items-center">
           <div>
