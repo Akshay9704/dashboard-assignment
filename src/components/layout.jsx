@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import DashboardImg from "../assets/dashboard.png";
 import PortfolioImg from "../assets/portfolio.png";
 import InputsImg from "../assets/input.png";
@@ -15,6 +15,10 @@ import InputsM from "../assets/input-m.png";
 import ProfileM from "../assets/profile-m.png";
 
 function AppLayout() {
+  const location = useLocation();
+  
+  const isActive = (path) => location.pathname === path;
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen w-full">
       {/* Sidebar for large screens */}
@@ -26,7 +30,9 @@ function AppLayout() {
           </div>
           <Link
             to="/dashboard"
-            className="flex gap-[17px] text-[14px] leading-[16.41px] cursor-pointer py-[11px]"
+            className={`flex items-center gap-[17px] text-[14px] leading-[16.41px] cursor-pointer py-[11px] ${
+              isActive("/dashboard") ? "link-gradient rounded-l-xl" : ""
+            }`}
           >
             <img
               src={DashboardImg}
@@ -37,7 +43,9 @@ function AppLayout() {
           </Link>
           <Link
             to="/portfolio"
-            className="flex gap-[15px] text-[14px] leading-[16.41px] cursor-pointer py-[11px]"
+            className={`flex items-center gap-[15px] text-[14px] leading-[16.41px] cursor-pointer py-[11px] ${
+              isActive("/portfolio") ? "link-gradient rounded-l-xl" : ""
+            }`}
           >
             <img
               src={PortfolioImg}
@@ -48,7 +56,9 @@ function AppLayout() {
           </Link>
           <Link
             to="/inputs"
-            className="flex text-[14px] gap-[15px] leading-[16.41px] cursor-pointer py-[11px]"
+            className={`flex items-center gap-[15px] text-[14px] leading-[16.41px] cursor-pointer py-[11px] ${
+              isActive("/inputs") ? "link-gradient rounded-l-xl" : ""
+            }`}
           >
             <img
               src={InputsImg}
@@ -59,7 +69,9 @@ function AppLayout() {
           </Link>
           <Link
             to="/profile"
-            className="flex gap-[15px] text-[14px] leading-[16.41px] cursor-pointer py-[11px]"
+            className={`flex items-center gap-[15px] text-[14px] leading-[16.41px] cursor-pointer py-[11px] ${
+              isActive("/profile") ? "link-gradient rounded-l-xl" : ""
+            }`}
           >
             <img
               src={ProfileImg}
@@ -121,7 +133,9 @@ function AppLayout() {
               alt="dashboard"
               className="w-[24px] h-[24px] mx-auto"
             />
-            <p className="text-[12px] text-[#848484]">Dashboard</p>
+            <p className={`text-[12px] ${
+              isActive("/dashboard") ? "text-[#DF5532]" : "text-[#848484]"
+            }`}>Dashboard</p>
           </Link>
           <Link to="/portfolio" className="text-center">
             <img
@@ -129,7 +143,9 @@ function AppLayout() {
               alt="portfolio"
               className="w-[24px] h-[24px] mx-auto"
             />
-            <p className="text-[12px] text-[#848484]">Portfolio</p>
+            <p className={`text-[12px] ${
+              isActive("/portfolio") ? "text-[#DF5532]" : "text-[#848484]"
+            }`}>Portfolio</p>
           </Link>
           <Link to="/inputs" className="text-center">
             <img
@@ -137,7 +153,9 @@ function AppLayout() {
               alt="inputs"
               className="w-[24px] h-[24px] mx-auto"
             />
-            <p className="text-[12px] text-[#848484]">Inputs</p>
+            <p className={`text-[12px] ${
+              isActive("/inputs") ? "text-[#DF5532]" : "text-[#848484]"
+            }`}>Inputs</p>
           </Link>
           <Link to="/profile" className="text-center">
             <img
@@ -145,7 +163,9 @@ function AppLayout() {
               alt="profile"
               className="w-[24px] h-[24px] mx-auto"
             />
-            <p className="text-[12px] text-[#848484]">Profile</p>
+            <p className={`text-[12px] ${
+              isActive("/profile") ? "text-[#DF5532]" : "text-[#848484]"
+            }`}>Profile</p>
           </Link>
         </div>
       </div>

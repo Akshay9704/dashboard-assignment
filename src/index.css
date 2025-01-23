@@ -11,3 +11,11 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.btn-gradient {
+  background: linear-gradient(135deg, #F39519 0%, #FFCD67 100%);
+}
+
+.link-gradient {
+  background: linear-gradient(91.41deg, #FFAD98 0%, #DF5532 100%);
+}
